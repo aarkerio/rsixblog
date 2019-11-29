@@ -5,9 +5,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import Home from '../components/Home'
 
 const Hello = props => (
-  <div>Hello is not working {props.name}!   JJJJJ  KKKK SSSSSSSS !!</div>
+  <div>Hello is not working {props.name}!   JJJJJ  KKKK SSSSSSSS asdasd !!</div>
 )
 
 Hello.defaultProps = {
