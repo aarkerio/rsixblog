@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class PostAdd extends Component {
   constructor() {
     super();
-    this.state = { title: '', content: ''};
+    this.state = { title: '', post: ''};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
@@ -11,7 +11,7 @@ class PostAdd extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    fetch('api/posts', {
+    fetch('/api/posts', {
         method: 'POST',
         body: JSON.stringify(this.state),
         headers: {'Content-Type': 'application/json' }

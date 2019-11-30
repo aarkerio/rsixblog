@@ -12,6 +12,7 @@ class Api::PostsController < ApplicationController
   end
 
   def create
+    Rails.logger.debug "####  CREATE #################>>>  #{post_params.inspect}"
     @post = Post.new(post_params)
     if @post.save
       render json: @post, status: :created

@@ -8,7 +8,7 @@ class PostList extends Component {
   }
 
   componentDidMount() {
-    fetch('api/posts')
+    fetch('/api/posts')
       .then(response => response.json())
       .then(data => {
         this.setState({posts: data});
@@ -22,7 +22,7 @@ class PostList extends Component {
           return(
             <div key={post.id}>
               <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2>
-              {post.content}
+              {post.post}
               <hr/>
             </div>
           );

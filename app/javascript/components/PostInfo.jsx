@@ -9,7 +9,7 @@ class PostInfo extends Component {
   }
 
   componentDidMount() {
-    fetch(`api/posts/${this.props.match.params.id}`)
+    fetch(`/api/posts/${this.props.match.params.id}`)
       .then(response => response.json())
       .then(data => {
           this.setState({post: data});
@@ -29,10 +29,10 @@ class PostInfo extends Component {
     return (
       <div>
         <h2>{this.state.post.id}: {this.state.post.title}</h2>
-        <p>{this.state.post.content}</p>
+        <p>{this.state.post.post}</p>
         <p>
-          <Link to={`/posts/${this.state.post.id}/edit`} className="btn btn-outline-dark">Edit</Link> 
-          <button onClick={this.handleDelete} className="btn btn-outline-dark">Delete</button> 
+          <Link to={`/posts/${this.state.post.id}/edit`} className="btn btn-outline-dark">Edit</Link>
+          <button onClick={this.handleDelete} className="btn btn-outline-dark">Delete</button>
           <Link to="/posts" className="btn btn-outline-dark">Close</Link>
         </p>
         <hr/>
