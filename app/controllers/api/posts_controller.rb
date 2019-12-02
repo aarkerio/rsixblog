@@ -12,9 +12,10 @@ class Api::PostsController < ApplicationController
   end
 
   def create
-    Rails.logger.debug "####  CREATE #################>>>  #{post_params.inspect}"
-    @post = Post.new(post_params)
-    if @post.save
+    Rails.logger.debug "####  POST PARAMS #################>>>  #{post_params}"
+    current_user_id = 1
+    @post = Post.create_post(post_params, current_user_id)
+    if @post.id
       render json: @post, status: :created
     else
       render json: @post.errors, status: :unprocessable_entity
@@ -39,6 +40,9 @@ class Api::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :post, :user_id)
+    params[:post][:title] = params[:post_title]
+    params[:post][:post]  = params[:post_post]
+
+    params.require(:post).permit(:title, :post)
   end
 end

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class PostAdd extends Component {
   constructor() {
     super();
-    this.state = { title: '', post: ''};
+    this.state = { post_title: '', post_post: ''};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
@@ -24,7 +24,7 @@ class PostAdd extends Component {
   }
 
   handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({ [event.target.id]: event.target.value });
   }
 
   handleCancel() {
@@ -38,11 +38,11 @@ class PostAdd extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>Title</label>
-            <input type="text" name="title" value={this.state.title} onChange={this.handleChange} className="form-control" />
+            <input type="text" size="80" name="post[title]" id="post_title" value={this.state.post_title} onChange={this.handleChange} className="form-control" />
           </div>
           <div className="form-group">
             <label>Post</label>
-            <textarea name="content" rows="5" value={this.state.content} onChange={this.handleChange} className="form-control" />
+            <textarea name="post[post]" id="post_post" rows="25" cols="130" value={this.state.post_post} onChange={this.handleChange} className="form-control" />
           </div>
           <div className="btn-group">
             <button type="submit" className="btn btn-dark">Create</button>
