@@ -1,6 +1,8 @@
 {
   "name": "rsixblog",
+  "license": "GPLv3",
   "private": true,
+  "version": "0.0.2",
   "dependencies": {
     "@babel/preset-react": "^7.7.4",
     "@rails/actioncable": "^6.0.0",
@@ -14,8 +16,28 @@
     "react-router-dom": "^5.1.2",
     "turbolinks": "^5.2.0"
   },
-  "version": "0.1.0",
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watch"
+  },
+  "jest": {
+    "moduleDirectories": [
+      "node_modules",
+      "app/javascript/packs"
+    ],
+    "roots": [
+      "test/javascript"
+    ]
+  },
   "devDependencies": {
+    "babel-jest": "^24.9.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "jest": "^24.9.0",
+    "jest-enzyme": "^7.1.2",
+    "regenerator-runtime": "^0.13.3",
     "webpack-dev-server": "^3.9.0"
   }
 }
