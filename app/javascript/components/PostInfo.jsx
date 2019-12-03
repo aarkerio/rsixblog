@@ -18,7 +18,7 @@ class PostInfo extends Component {
   }
 
   handleDelete() {
-    fetch(`api/posts/${this.props.match.params.id}`, {method: 'DELETE'})
+    fetch(`/api/posts/${this.props.match.params.id}`, {method: 'DELETE'})
       .then(() => {
         this.props.history.push("/posts");
       })
